@@ -1,16 +1,225 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* ******** Fluid Text ******** */
+/* todo: https://utopia.fyi/type/calculator/ */
+:root {
+  /* ? Customize ? */
+  --step--2: clamp(0.74rem, 0.75rem + -0.05vw, 0.7rem);
+  --step--1: clamp(0.89rem, 0.87rem + 0.07vw, 0.94rem);
+  --step-0: clamp(1.06rem, 1.01rem + 0.25vw, 1.25rem);
+  --step-1: clamp(1.28rem, 1.17rem + 0.53vw, 1.67rem);
+  --step-2: clamp(1.53rem, 1.34rem + 0.94vw, 2.22rem);
+  --step-3: clamp(1.84rem, 1.53rem + 1.52vw, 2.96rem);
+  --step-4: clamp(2.2rem, 1.73rem + 2.36vw, 3.95rem);
+  --step-5: clamp(2.64rem, 1.93rem + 3.55vw, 5.26rem);
 }
 
+/* ******** Custom Properties ******** */
+:root {
+  --first-color: #0099ff;
+  --first-alpha-color: rgba(0, 153, 255, 0.75);
+  --second-color: #1c5480;
+  --second-alpha-color: rgba(28, 84, 128, 0.75);
+  --text-color: #323232;
+  --link-color: #0070f3;
+}
+
+/* ******** Reset ******** */
+/* ? HTML */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* ? Body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #333;
+  background-image: radial-gradient(var(--first-alpha-color), transparent 1.5px),
+    radial-gradient(var(--first-alpha-color), transparent 1.5px);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+}
+
+/* ? Buttons */
+button {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ? Form */
+form {
+  margin: 0;
+  padding: 0;
+}
+
+/* ? Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* ? Inputs */
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ? Media */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* ? Link */
 a {
-  color: inherit;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--link-color);
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+/* ? List */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  margin: 0;
+  padding: 0;
+}
+li::marker {
+  display: none;
+}
+
+/* ? Paragraphs */
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* ******** Utilities ******** */
+
+/* ******** Components ******** */
+/* ? Button */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 5000000rem;
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: #fff;
+  background-color: #000;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: #222;
+}
+
+/* ? Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+}
+.logo h1 {
+  font-size: var(--step-3);
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: var(--first-color);
+  text-align: center;
+}
+.logo p {
+  font-size: var(--step-1);
+  font-weight: 600;
+  margin-top: 0.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* ******** Site Styles ******** */
+.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* ? Main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 450px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+.main img {
+  width: 4rem;
+  height: 4rem;
+}
+
+@media screen and (min-width: 48em) {
+  .main {
+    height: 90vh;
+  }
 }
