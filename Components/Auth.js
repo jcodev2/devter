@@ -1,12 +1,11 @@
 import Image from 'next/image'
-import signInWithGithub from '../firebase/client'
-import GitHub from '../icons/Github'
+import useUser from '../hooks/useUser'
 import Button from './Button'
 
 function Auth() {
-  const handleClick = () => {
-    signInWithGithub()
-  }
+  const { user, singInWithGithub, logout } = useUser()
+
+  console.log('user', user)
 
   return (
     <div className='logo'>
@@ -16,10 +15,22 @@ function Auth() {
         Talk about development <br></br>with developers 👨🏻‍💻👩🏻‍💻
       </p>
 
-      <Button onClick={handleClick}>
-        <GitHub fill='#fff' width={24} height={24} />
-        Log in with GitHub
-      </Button>
+      {user ? (
+        <Button onClick={logout}>Logout</Button>
+      ) : (
+        <Button onClick={singInWithGithub}>Sign in with Github</Button>
+      )}
+
+      {user && (
+        <div>
+          <p>
+            <strong>{user.name}</strong>
+          </p>
+          <p>
+            <strong>{user.email}</strong>
+          </p>
+        </div>
+      )}
     </div>
   )
 }
